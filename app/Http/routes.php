@@ -21,3 +21,12 @@ Route::get('/insert', function(){
 	
 	$user->address()->save($address);
 });
+	
+Route::get('/update', function(){
+	 //$address = Address:where('user_id', 1)->first();
+	//$Address = Address:where('user_id', '=', 1)->first();
+	$address = Address::whereUserId(1)->first();
+	
+	$address->name = "JL.Pendek Sekali, langsung nyampe";
+	$address->save();
+});
