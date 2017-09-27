@@ -1,6 +1,5 @@
 <?php
-use App\User;
-use App\Address;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -14,30 +13,4 @@ use App\Address;
 
 Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/insert', function(){
-	$user = User::findOrFail(1);
-	$address = new Address(['name' => 'JL.Panjang Sekali Gak Nyampe2.']);
-	
-	$user->address()->save($address);
-});
-	
-Route::get('/update', function(){
-	 //$address = Address:where('user_id', 1)->first();
-	//$Address = Address:where('user_id', '=', 1)->first();
-	$address = Address::whereUserId(1)->first();
-	
-	$address->name = "JL.Pendek Sekali, langsung nyampe";
-	$address->save();
-});
-
-Route::get('/read', function(){
-	$user = User::findOrFail(1);
-	echo $user->name;
-	echo $user->address->name;
-});
-
-Route::get('/delete', function(){
-	$user = User::findOrFail(1);
-	$user->address()->delete();
 });
