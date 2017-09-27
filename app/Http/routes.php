@@ -44,3 +44,11 @@ Route::get('/update', function(){
 		
 		$user->posts()->whereId(1)->update(['title'=>'I love laravel so much', 'body'=>'this is awesome']);
 });
+
+Route::get('/delete', function(){
+		$user = User::find(1);
+		
+		$user->posts()->whereId(1)->delete();
+});
+
+
