@@ -1,6 +1,5 @@
 <?php
-use App\User;
-use App\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,40 +14,3 @@ use App\Post;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/create', function(){
-		$user = User::findOrFail(1);
-		
-		$post = new Post(['title'=>'My First Post', 'body'=>'I Love Laravel']);
-		$user ->posts()->save($post);
-});
-
-
-Route::get('/create', function(){
-		$user = User::findOrFail(1);
-		
-		$post = new Post(['title'=>'My Second Post', 'body'=>'I Love You']);
-		$user ->posts()->save($post);
-});
-
-Route::get('/read', function(){
-		$user = User::findOrFail(1);
-		
-		foreach($user->posts as $post){
-			echo $post->title."<br/>";
-		}
-});
-
-Route::get('/update', function(){
-		$user = User::find(1);
-		
-		$user->posts()->whereId(1)->update(['title'=>'I love laravel so much', 'body'=>'this is awesome']);
-});
-
-Route::get('/delete', function(){
-		$user = User::find(1);
-		
-		$user->posts()->whereId(1)->delete();
-});
-
-
