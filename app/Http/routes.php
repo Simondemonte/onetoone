@@ -10,7 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+use App\Staff;
+use App\Photo;
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/create', function(){
+	$staff = Staff::find(1);
+	
+	$staff->photos()->create(['path'=>'example.jpg']);
 });
