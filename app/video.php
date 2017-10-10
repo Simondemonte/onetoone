@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class video extends Model
 {
     //
-	protected $fillable '=' ['name'];
+	protected $fillable = ['name'];
 	
 	public function tags(){
 		return $this->morphToMany('App\Tag', 'taggable');
