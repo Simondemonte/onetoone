@@ -22,7 +22,9 @@ class PostController extends Controller
     public function index($id)
     {
         //
-		return "Hello...berhasil coy, ini post no".$id;
+		//return view ('posts.index');
+		$posts = Post::all();
+		return view('posts.index', compact('posts'));
     }
 
     /**
@@ -55,6 +57,8 @@ class PostController extends Controller
 		//$post = new Post;
 		//$Post->title = $request->title;
 		//$Post->save();
+		
+		return redirect('/post');
     }
 
     /**
