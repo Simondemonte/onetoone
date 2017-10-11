@@ -10,53 +10,54 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-use App\Post;
-use App\Tag;
-use App\Video;
+//use App\Post;
+//use App\Tag;
+//use App\Video;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/create', function(){
+//Route::get('/create', function(){
 	//buat sebuah post
-	$post = Post::create(['name'=> 'My first post']);
+	//$post = Post::create(['name'=> 'My first post']);
 	//dapatkan tag dengan id 1
-	$tag1 = Tag::find(1);
+	//$tag1 = Tag::find(1);
 	//hubungkan post yang dibuat dengan tag tersebut 
-	$post->tags()->save($tags1);
+//	$post->tags()->save($tags1);
 	
-	$video = Video::create(['name' => 'My first video']);
-	$tag2 = Tag::find(2);
-	$video->tags()->save($tag2);
-});
+	//$video = Video::create(['name' => 'My first video']);
+	//$tag2 = Tag::find(2);
+	//$video->tags()->save($tag2);
+//});
 
-Route::get('/read', function(){
-	$post = Post::findOrFail(1);
+//Route::get('/read', function(){
+	//$post = Post::findOrFail(1);
 	
-	foreach($post->tags as $tag){
-		echo $tag;
-		echo "<br />";
-		echo $tag->name;
-	}
-});
+	//foreach($post->tags as $tag){
+		//echo $tag;
+		//echo "<br />";
+		//echo $tag->name;
+	//}
+//});
 
-Route::get('/update', function(){
+//Route::get('/update', function(){
 	//$post = Post::findOrFail(1);
 	
 	//foreach($post->tags as $tag){
 		//return $tag->whereName('PHP')->update(['name' => 'Updated PHP']);
 	//}
-	$post = Post::findOrFail(1);
-	$tag = Tag::find(3);
+	//$post = Post::findOrFail(1);
+	//$tag = Tag::find(3);
 	//$post->tags()->save($tag);
 	//$post->tags()->attach($tag);
-	$post->tags()->sync([2]);
-});
+	//$post->tags()->sync([2]);
+//});
 
-Route::get('/delete', function(){
-	$post = Post::find(1);
+//Route::get('/delete', function(){
+	//$post = Post::find(1);
 	
-	foreach($post->tags as $tag){
-		$tag->whereId(2)->delete();
-});
+	//foreach($post->tags as $tag){
+		//$tag->whereId(2)->delete();
+//});
+Route::resource('/posts', 'PostController');
