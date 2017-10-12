@@ -49,28 +49,30 @@ class PostController extends Controller
      */
 	 public function store(CreatePostRequest $request)
 	 {
+		 return $request->file('gambar'); //lokasi file temproray dari file yang diupload
+	 } 
 		 //this->validate($request, [
 		 //	'title' => 'required'
 		 // ]);
-    public function store(Request $request)
-    {
-		$this->validate($request,[
-			'title'=>'required',
-			]);
+    //public function store(Request $request)
+    //{
+	//	$this->validate($request,[
+	//		'title'=>'required',
+		//	]);
         //
 		//return $request->get('title');
 		//return $request->title;
 		//
 		//Cara 1
-		Post::create($request->all());
+		//Post::create($request->all());
 		
 		//Cara 2
 		//$post = new Post;
 		//$Post->title = $request->title;
 		//$Post->save();
 		
-		return redirect('/post');
-    }
+		//return redirect('/post');
+    //}
 
     /**
      * Display the specified resource.
