@@ -31,3 +31,11 @@ public function getNameAttribute($value){
 	
 	return strtoupper($value);
 }
+public function setNameAttribute($value){
+	//Format Nama function -->set + NAMAKOLOM + Attribute
+	// Kita akan mengakes kolom "nama" dari tabel users	
+	// Sehingga NAMAKOLOM = Nama (Diawali dengan huruf besar)
+	
+	$this->attributes['name'] = strtoupper($value);
+	}
+}
