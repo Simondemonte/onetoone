@@ -10,10 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-//use App\Post;
-//use App\Tag;
-//use App\Video;
-
+use App\Post;
+use App\User;
+use App\Country;
+use App\Photo;
+use App\Tag;
+use App\Video;
+use Carbon\Carbon;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
@@ -61,3 +64,24 @@
 		//$tag->whereId(2)->delete();
 //});
 Route::resource('/posts', 'PostController');
+
+Route::get('/dates', function(){
+	$date = new DateTime('+1 week');
+	echo $date->format('m-d-Y');
+	
+	echo "<br />";
+	echo Carbon::now();
+	
+	echo "<br />";
+	echo Carbon::now()->diffForHumans();
+	
+	echo "<br />";
+	echo Carbon::now()->addDays(10)->diffForHumans();
+	
+	echo "<br />";
+	echo Carbon::now()->subMonths(5)->diffForHumans();
+	
+	echo "<br />";
+	echo Carbon::now()->yesterday()->diffForHumans();
+});
+	
