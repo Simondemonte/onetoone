@@ -23,4 +23,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+public function getNameAttribute($value){
+	//Format nama function -->get + NAMAKOLOM + Attribute
+	//Kita akan mengakes kolom "nama" dari tabel users
+	//Sehingga NAMAKOLOM = Nama (Diawali dengan huruf besar)
+	
+	return strtoupper($value);
 }
