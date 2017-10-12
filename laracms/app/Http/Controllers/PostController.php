@@ -20,11 +20,13 @@ class PostController extends Controller
 		 //
 		 return view('post.create');
 	 }
-    public function index($id)
+    public function index()
     {
         //
 		//return view ('posts.index');
-		$posts = Post::all();
+		//$posts = Post::all();
+		//return view('posts.index', compact('posts'));
+		$posts = Post::latest();
 		return view('posts.index', compact('posts'));
     }
 
