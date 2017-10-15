@@ -49,8 +49,19 @@ class PostController extends Controller
      */
 	 public function store(CreatePostRequest $request)
 	 {
-		 return $request->file('gambar'); //lokasi file temproray dari file yang diupload
-	 } 
+		 $input = $request->file('gambar')){
+			 $name = $file->getClientOriginalName();
+			 $file->move('images', $name);
+			 $input['path']= $name;
+		 }
+		 Post::create($input);
+		 //return $request->file('gambar'); //lokasi file temproray dari file yang diupload
+		//echo $file->getClientOriginalName();
+		//echo "<br />";
+		
+		//echo $file->getClientSize();
+		//echo "<br />";
+		 } 
 		 //this->validate($request, [
 		 //	'title' => 'required'
 		 // ]);
