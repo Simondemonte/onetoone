@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     //
+	public $directory ='/images/';
 	protected $fillable =[
 	'title',
 	'content',
@@ -21,5 +22,8 @@ class Post extends Model
 		// Scope +latest (mau menampilkan latest post)
 		
 		return $query->orderBy('id', 'desc')->get();
+	}
+	public function getPathAttribute($value){
+		return $this->directory . $value;
 	}
 }
